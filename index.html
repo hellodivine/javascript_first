@@ -1,0 +1,112 @@
+<script>
+let funds =  3000
+let ussdcode = "*419#"
+let pin = 6969
+let error = "Wrong USSD Code, Please Try Again"
+let home = `Welcome to Cash Me If You Can Bank : 
+    1. Airtime/Data
+    2. Loans
+    3. Transfer`
+let airtime_data = `Choose Options Below : 
+    1. Airtime
+    2. Data   `
+let num_choice =`Choose Options Below : 
+    1. Send to Own Number
+    2. Send to Another Number`
+let networks =`Choose Network Below : 
+    1. MTN
+    2. Glo
+    3. Airtel
+    4. 9Mobile`
+let account =`Select Account : 
+    1. 911xxxx342 - NGA`
+let inputussd = prompt("Dial Your Bank USSD Code")
+let amount = `Enter Amount`
+let success = `Your Transaction Is Successful`
+let failed = `Your Transaction Is Failed`
+let low_funds = `Insufficient Funds`
+let unknown = `UNKNOWN APPLICATION`
+let wrong_pin = `The Pin is Incorrect`
+if ( inputussd == ussdcode ) {
+    if (prompt( home ) == "1") {
+        if ( prompt (airtime_data ) == "1") {
+            if ( prompt (num_choice) == "1") {
+                if ( prompt( account ) == "1") {
+                    if (+prompt("Enter Account Pin") == pin) {
+                        if (+prompt(amount) < funds) {
+                         alert (success)
+                        } else if (+prompt(amount) > funds) {
+                            alert(low_funds)
+                        }else {
+                            alert( unknown)
+                        }
+                    } else {
+                        alert(wrong_pin)
+                    }
+                } else {
+                   alert ( unknown ) 
+                }
+            }else 
+            if ( num_choice != "1" ) {
+                prompt( networks)
+                prompt (`Type in Recipient Number`)
+                if ( prompt( account ) == "1") {
+                    if (+prompt("Enter Account Pin") == pin) {
+                        if (+prompt(amount) < funds) {
+                            alert (success)
+                        } else if (+prompt(amount) > funds) {
+                            alert(low_funds)
+                        }else {
+                            alert( unknown)
+                        }
+                    } else {
+                        alert(wrong_pin)
+                    }
+                } else {
+                   alert ( unknown ) 
+                }
+            }
+        } else if (airtime_data != "1") {
+            if ( prompt (num_choice) == "1") {
+                if ( prompt( account ) == "1") {
+                    if (+prompt("Enter Account Pin") == pin) {
+                        if (+prompt(amount) < funds) {
+                         alert (success)
+                        } else if (+prompt(amount) > funds) {
+                            alert(low_funds)
+                        }else {
+                            alert( unknown)
+                        }
+                    } else {
+                        alert(wrong_pin)
+                    }
+                } else {
+                   alert ( unknown ) 
+                }
+            }else 
+            if ( num_choice != "1" ) {
+                prompt( networks)
+                prompt (`Type in Recipient Number`)
+                if ( prompt( account ) == "1") {
+                    if (+prompt("Enter Account Pin") == pin) {
+                        if (+prompt(amount) < funds) {
+                            alert (success)
+                        } else if (+prompt(amount) > funds) {
+                            alert(low_funds)
+                        }
+                    }else {
+                        alert( unknown)
+                    }
+                } else {
+                    alert(wrong_pin)
+                }
+            } else {
+               alert ( unknown ) 
+            }
+        }
+    }
+} 
+else if(inputussd != ussdcode){
+    alert( error )
+}
+</script>
